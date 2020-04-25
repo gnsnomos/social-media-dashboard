@@ -1,0 +1,10 @@
+// Dark Theme
+$DARK--very-dark-blue-bg: hsl(230, 17%, 14%);
+$DARK--very-dark-blue-top-bg-pattern: hsl(232, 19%, 15%);
+$DARK--dark-desaturated-blue-card-bg: hsl(228, 28%, 20%);
+$DARK--dark-desaturated-blue-text: hsl(228, 34%, 66%);
+$DARK--white-text: hsl(0, 0%, 100%);
+
+body {
+    background-color: $DARK--very-dark-blue-bg;
+}

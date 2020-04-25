@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+@import "./light-theme.scss";
+
+/* COLORS */
+$lime-green: hsl(163, 72%, 41%);
+$bright-red: hsl(356, 69%, 56%);
+
+$facebook: hsl(195, 100%, 50%);
+$twitter: hsl(203, 89%, 53%);
+$youtube: hsl(348, 97%, 39%);
+$instagram: linear gradient hsl(37, 97%, 70%) to hsl(329, 70%, 58%);
+
+/* GENERAL STYLES */
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+}
+
+.top-info {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  .card {
+    border-top: 3px solid;
+    padding: 20px;
+    margin-bottom: 20px;
+
+    &.card-facebook {
+      border-color: $facebook;
+    }
+
+    &.card-twitter {
+      border-color: $twitter;
+    }
+
+    &.card-youtube {
+      border-color: $youtube;
+    }
+
+    &.card-instagram {
+      border-color: $instagram;
+    }
+  }
+}
+.card {
+  border-radius: 5px;
+
+  .user {
+    display: flex;
+    justify-content: center;
+
+    .social-icon {
+        margin-right: 5px;
+    }
+  }
+
+  .followers-number {
+    font-size: 40px;
+    padding-top: 20px;
+  }
+  .followers-text {
+    text-transform: uppercase;
+    padding-bottom: 20px;
+  }
+
+  .followers-today {
+      font-weight: 700;
+
+      &:before {
+        margin-right: 5px;
+        position: relative;
+        top: -3px;
+      }
+
+      &.up {
+        color: $lime-green;
+
+        &:before {
+            content: url(/images/icon-up.svg);
+        }
+      }
+      &.down {
+        color: $bright-red;
+
+        &:before {
+            content: url(/images/icon-down.svg);
+        }
+      }
+  }
+}
+
+/* MOBILE */
+
+/* DESKTOP */
+@media (min-width: 1440px) {
+    .top-info {
+        flex-direction: row;
+ 
+        .card {
+            flex: 50%;
+        }
+    }
+}
