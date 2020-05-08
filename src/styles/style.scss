@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 @import "./light-theme.scss";
+@import "./dark-theme.scss";
+@import "./toggle-element.scss";
 
 /* COLORS */
 $lime-green: hsl(163, 72%, 41%);
@@ -8,12 +10,50 @@ $bright-red: hsl(356, 69%, 56%);
 $facebook: hsl(195, 100%, 50%);
 $twitter: hsl(203, 89%, 53%);
 $youtube: hsl(348, 97%, 39%);
-$instagram: linear gradient hsl(37, 97%, 70%) to hsl(329, 70%, 58%);
+$instagram: linear-gradient(to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
 
 /* GENERAL STYLES */
 body {
   font-family: "Inter", sans-serif;
   font-size: 14px;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title {
+  margin-bottom: 0;
+}
+
+.subtitle {
+  margin-top: 0;
+}
+
+header {
+  margin: 20px;
+  display: grid;
+  grid-template-columns: 70% 30%;
+
+  .right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+section {
+  margin: 20px;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .top-info {
@@ -22,71 +62,112 @@ body {
   text-align: center;
 
   .card {
-    border-top: 3px solid;
-    padding: 20px;
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+
+    .user {
+      display: flex;
+      justify-content: center;
+  
+      .social-icon {
+        margin-right: 5px;
+      }
+    }
+  
+    .followers-number {
+      font-size: 50px;
+      padding-top: 20px;
+      font-weight: 700;
+    }
+
+    .followers-text {
+      text-transform: uppercase;
+      padding-bottom: 20px;
+      letter-spacing: 4px;
+    }
+
+    .content {
+      padding: 20px;
+      border-radius: 0 0 5px 5px;
+      margin-top: 5px;
+      flex: 1;
+    }
 
     &.card-facebook {
-      border-color: $facebook;
+      background: $facebook;
     }
 
     &.card-twitter {
-      border-color: $twitter;
+      background: $twitter;
     }
 
     &.card-youtube {
-      border-color: $youtube;
+      background: $youtube;
     }
 
     &.card-instagram {
-      border-color: $instagram;
+      background: $instagram;
     }
   }
 }
-.card {
-  border-radius: 5px;
 
-  .user {
-    display: flex;
-    justify-content: center;
+.overview {
+  .card {
+    margin-bottom: 20px;
 
-    .social-icon {
-        margin-right: 5px;
+    .content {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      padding: 20px;
+      border-radius: 8px;
+
+      .social-icon, .overview-percent {
+        text-align: right;
+      }
+
+      .overview-amount, .overview-percent {
+        align-self: end;;
+      }
+
+      .overview-amount {
+        font-size: 30px;
+        font-weight: 700;
+      }
+
+      .overview-title {
+        height: 40px;
+        font-weight: 700;
+      }
     }
   }
+}
 
-  .followers-number {
-    font-size: 40px;
-    padding-top: 20px;
-  }
-  .followers-text {
-    text-transform: uppercase;
-    padding-bottom: 20px;
-  }
+.card {
+  .followers-today, .overview-percent {
+    font-weight: 700;
 
-  .followers-today {
-      font-weight: 700;
+    &:before {
+      margin-right: 5px;
+      position: relative;
+      top: -3px;
+    }
+
+    &.up {
+      color: $lime-green;
 
       &:before {
-        margin-right: 5px;
-        position: relative;
-        top: -3px;
+        content: url(/images/icon-up.svg);
       }
+    }
+    &.down {
+      color: $bright-red;
 
-      &.up {
-        color: $lime-green;
-
-        &:before {
-            content: url(/images/icon-up.svg);
-        }
+      &:before {
+        content: url(/images/icon-down.svg);
       }
-      &.down {
-        color: $bright-red;
-
-        &:before {
-            content: url(/images/icon-down.svg);
-        }
-      }
+    }
   }
 }
 
@@ -94,11 +175,15 @@ body {
 
 /* DESKTOP */
 @media (min-width: 1440px) {
-    .top-info {
-        flex-direction: row;
- 
-        .card {
-            flex: 50%;
-        }
+  .top-info, .overview {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: 24% 24% 24% 24%;
+
+    .card {
+      &:hover {
+        cursor: pointer;
+      }
     }
+  }
 }

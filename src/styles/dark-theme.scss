@@ -2,9 +2,52 @@
 $DARK--very-dark-blue-bg: hsl(230, 17%, 14%);
 $DARK--very-dark-blue-top-bg-pattern: hsl(232, 19%, 15%);
 $DARK--dark-desaturated-blue-card-bg: hsl(228, 28%, 20%);
+$DARK--dark-desaturated-blue-card-hover-bg: hsl(232, 16%, 37%);
 $DARK--dark-desaturated-blue-text: hsl(228, 34%, 66%);
 $DARK--white-text: hsl(0, 0%, 100%);
 
-body {
+body.dark {
     background-color: $DARK--very-dark-blue-bg;
+
+    .subtitle {
+        color: $DARK--dark-desaturated-blue-text;
+    }
+
+    .card {
+        .content {
+            background-color: $DARK--dark-desaturated-blue-card-bg;
+            &:hover {
+                background-color: $DARK--dark-desaturated-blue-card-hover-bg;
+            }
+        }
+
+        .overview-title {
+            color: $DARK--dark-desaturated-blue-text;
+        }
+    }
+
+    .overview-header-title {
+        color: $DARK--dark-desaturated-blue-text;
+    }
+
+    .text--primary {
+        color: $DARK--white-text;
+    }
+    
+    .text--secondary {
+        color: $DARK--dark-desaturated-blue-text;
+    }
+
+    .slider {
+        background-color: #2196F3;
+        &:before {
+            -webkit-transform: translateX(-20px);
+            -ms-transform: translateX(-20px);
+            transform: translateX(-20px);
+        }
+    }
+
+    .attribution a {
+        color: $DARK--dark-desaturated-blue-text;
+    }
 }

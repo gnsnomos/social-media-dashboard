@@ -1,0 +1,41 @@
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 18px;
+  margin-left: 10px;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+
+  &:before {
+    position: absolute;
+    content: "";
+    height: 13px;
+    width: 13px;
+    bottom: 3px;
+    right: 3px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+  &:before {
+    border-radius: 50%;
+  }
+}

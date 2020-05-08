@@ -2,13 +2,35 @@
 $LIGHT--white-bg: hsl(0, 0%, 100%);
 $LIGHT--very-pale-blue-top-bg-pattern: hsl(225, 100%, 98%);
 $LIGHT--light-grayish-blue-card-bg: hsl(227, 47%, 96%);
+$LIGHT--light-grayish-blue-card-hover-bg: hsl(228, 12%, 84%);
 $LIGHT--dark-grayish-blue-text: hsl(228, 12%, 44%);
 $LIGHT--very-dark-blue-text: hsl(230, 17%, 14%);
 
-body {
+body.light {
     background-color: $LIGHT--white-bg;
-}
 
-.card {
-    background-color: $LIGHT--light-grayish-blue-card-bg;
+    .subtitle {
+        color: $LIGHT--dark-grayish-blue-text;
+    }
+
+    .card {
+        .content {
+            background-color: $LIGHT--light-grayish-blue-card-bg;
+            &:hover {
+                background-color: $LIGHT--light-grayish-blue-card-hover-bg;
+            }
+        }
+
+        .overview-title {
+            color: $LIGHT--dark-grayish-blue-text;
+        }
+    }
+
+    .overview-header-title {
+        color: $LIGHT--dark-grayish-blue-text;
+    }
+
+    .attribution a {
+        color: $LIGHT--dark-grayish-blue-text;
+    }
 }
